@@ -1,16 +1,16 @@
 // build your `Task` model here
 const db = require("../../data/dbConfig.js");
 
-function getTasks(){
+function findTasks(){
     return db('tasks')
 }
 
-function findTaskById(id){
+function getTaskByIdea(id){
     return db('tasks')
     .where({ task_id: Number(id) }).first()
 }
 
-function addTask(task){
+function addATask(task){
     return db('task')
     .insert(task, 'task_id')
     .then(id => ({ task_id: id[0] }));
@@ -18,7 +18,7 @@ function addTask(task){
 
 
 module.exports = {
-    getTasks,
-    findTaskById,
-    addTask
+    findTasks,
+    getTaskByIdea,
+    addATask
 } 
